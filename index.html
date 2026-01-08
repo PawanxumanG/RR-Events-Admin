@@ -1,619 +1,594 @@
+<!--
+============================================================
+Agar aap yahan tak aa gaye ho,
+toh obviously tumne Inspect open kiya hai 😄
+
+Haa, ye app manually build kiya hu,
+aur haa, isko regularly improve kara hu Akele 🔥😭😭😭.
+
+Project  : RR Events App
+Developer: Pawan Ponnam
+Type     : Mobile-first WebView App
+Use Case : College events, games & live updates
+Status   : Live & actively maintained
+
+Contact Me
+📸 Instagram : @_oyee_duffer_
+📱 Mobile    : +91 9867637326
+
+░█▀█░▄▀█░█░█░█░▄▀█░█▄░█
+░█▀▀░█▀█░▀▄▀▄▀░█▀█░█░▀█
+░░░░░░░░░░░░░░░░░░░░░░░
+░█▀█░█▀█░█▄░█░█▄░█░▄▀█░█▀▄▀█
+░█▀▀░█▄█░█░▀█░█░▀█░█▀█░█░▀░█
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+██████████████████████████████████████████████████████████
+██████████████████████████████▒▒▒▒████████████████████████
+████████████▓▓█████████▒░▓██▒▒▒░░░░███████▓░░▓████████████
+████████████▒▒░░░░▒███▒▒░░░░▒▒░░░░░░███▒░░░░▓█████████████
+████████████▓▒▒░░░░░░█▒░░░░░░░░░░░░░▒░░░░░░▒░█████████████
+█████████████▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒░████▓▓▓▓▓▓███
+████▒▒▒▒▒▒▒▒░░░░▒░░░░░░░░░░░░░░░░░░░░░░░░░▒░▓░░░░░░░░▒▓███
+█████▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒█████
+███████▒░▒▒▒▒░░░░░░░░░░░▒▒▓▒░░░░░░░░░░░░░░░░░░░░░▒▒▓██████
+█████████▒░░▒░░Narayan Narayan 🪷░░░░░Narayan Narayan 🪷░▒▒████████
+███████████▒▒░▒░░░░░░▒░░░░░▒▒▒░░░▒▒▒▒░░░▒▒▒▒▓▓░▒██████████
+█████████▒▒░▒▒▒▒▒░░░░▒░░░░░░▒░░░░░░░░░░░░▒▒▒▒▒░░░░▒▒▓█████
+████▓▓▓▓▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒░░░▒▒░░░░░░░░░░░▒▒▒▒▒░░░░░░░░▒▒███
+██▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒▒▒▒▓█
+██▒▒▒▒▒▓▓▒▒▒▓▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒░░░░░░░░░▒▒▒▒▒▓▓█
+█████████▓▓▓▓▒▒▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▒▒▒░▒▒▒▒▒▓████████
+██████████████▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▓▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█████████
+█████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█████████████
+████████████▓▓▓▓▓▓▓▓▓▓▓▓▓██████▓▓▓▓▓▓▓▓▓▓▓▓▓▓█████████████
+█████████████▓▓▓▓▓▓███████████████████▓▓▓▓▓▓██████████████
+██████████████████████████████████████████████████████████
+It's a Lotus 🪷 
+============================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RR College Admin - Live Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d1117;
-            color: #e6edf3;
-            margin: 0;
-            overflow-x: hidden;
-            transition: all 0.3s ease;
-        }
-        .glass-panel {
-            background: rgba(22, 27, 34, 0.8);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(48, 54, 61, 0.6);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #30363d;
-            border-radius: 10px;
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-slide-up {
-            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .loader {
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-top: 2px solid #f97316;
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            animation: spin 0.8s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .event-preview-card {
-            background-size: 400% 400%;
-            animation: gradientFlow 8s ease infinite;
-        }
-        .name-glow {
-            color: #f97316;
-            font-weight: 900;
-            text-shadow: 0 0 15px rgba(249, 115, 22, 0.9), 0 0 30px rgba(249, 115, 22, 0.4);
-        }
-        .color-input-wrapper {
-            position: relative;
-            width: 100%;
-            height: 48px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid rgba(48, 54, 61, 0.8);
-            transition: border-color 0.2s;
-        }
-        .color-input-wrapper:hover {
-            border-color: #f97316;
-        }
-        .color-input-wrapper input[type="color"] {
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            width: 150%;
-            height: 150%;
-            cursor: pointer;
-            border: none;
-            padding: 0;
-            background: none;
-        }
-    </style>
-<link rel="stylesheet" href="/index.css">
+<meta charset="UTF-8">
+<title>RR International College - Notices</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- ✅ GOOGLE ANALYTICS -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JW1V42V83"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config','G-9JW1V42V83',{
+  page_title:'RR Events Home',
+  page_path:'/index.html'
+});
+gtag('event','home_loaded');
+</script>
+
+<style>
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.header-logo{
+    width:42px;
+    height:42px;
+    margin-right:10px;
+    vertical-align:middle;
+    filter:drop-shadow(0 0 6px rgba(255,255,255,0.6));
+}
+
+.streak-mini{
+    background:#161a22;
+    border-radius:12px;
+    padding:12px 14px;
+    margin:14px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 0 12px rgba(0,0,0,.5);
+}
+.streak-mini b{color:#ff9800}
+
+/* 🔥 ENHANCED COUNTDOWN */
+.countdown-box{
+    background:linear-gradient(135deg,#6a11cb,#2575fc);
+    border-radius:18px;
+    padding:18px 14px;
+    margin-bottom:18px;
+    text-align:center;
+    color:#fff;
+    box-shadow:0 0 30px rgba(123,44,255,.9);
+    animation:festPulse 1.6s infinite;
+}
+.countdown-title{
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:1px;
+    opacity:.95;
+}
+.countdown-time{
+    font-size:24px;
+    font-weight:900;
+    margin:8px 0;
+}
+.countdown-sub{
+    font-size:14px;
+    opacity:.9;
+}
+
+@keyframes festPulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.04);}
+    100%{transform:scale(1);}
+}
+
+/* ===== POSTER (ONLY NEW CSS) ===== */
+.poster-box{
+    background:#161a22;
+    border-radius:16px;
+    padding:12px;
+    margin:16px 0;
+    box-shadow:0 0 18px rgba(0,0,0,.6);
+}
+.poster-box img{
+    width:100%;
+    border-radius:12px;
+    display:block;
+}
+
+/* ===== STUDENT HELPER ===== */
+.ai-box{
+    background:#161a22;
+    border-radius:14px;
+    padding:12px;
+    margin-bottom:18px;
+    box-shadow:0 0 18px rgba(0,0,0,.6);
+}
+.ai-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+}
+.ai-header h2{font-size:16px;margin:0}
+.ai-toggle{font-size:13px;opacity:.7}
+.ai-content{display:none;margin-top:10px}
+.ai-btn{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    border:none;
+    border-radius:10px;
+    color:#fff;
+    font-size:14px;
+    cursor:pointer;
+}
+.ai-pay{background:linear-gradient(90deg,#7b2cff,#2575fc)}
+.ai-game{background:linear-gradient(90deg,#ff2e63,#ff9800)}
+.ai-answer{
+    margin-top:10px;
+    font-size:14px;
+    color:#ffcc80;
+    white-space:pre-line;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-bottom:18px;
+}
+.grid button{
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    font-size:15px;
+    color:#fff;
+    cursor:pointer;
+    box-shadow:0 0 16px rgba(0,0,0,.5);
+}
+.btn-payment{background:linear-gradient(135deg,#00c6ff,#0072ff)}
+.btn-promo{background:linear-gradient(135deg,#7b2cff,#ff2e63)}
+.btn-album{background:linear-gradient(135deg,#ff9800,#ff2e63)}
+.btn-events{background:linear-gradient(135deg,#00b09b,#96c93d)}
+
+.share-app-btn{
+    margin:10px 0 6px;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(135deg,#ff9800,#ff5722);
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 0 16px rgba(255,152,0,.45);
+}
+.share-app-btn:active{transform:scale(.98)}
+
+.app-footer{
+    margin-top:12px;
+    padding-top:14px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+.powered-text{font-size:13px;color:#9aa0a6}
+.powered-brand{font-size:13px;color:#e6e6e6;font-weight:600}
+
+.update-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:12px;
+    cursor:pointer;
+}
+.update-header b{color:#ff9800}
+.update-toggle{font-size:13px;color:#ff9800}
+.update-content{
+    display:none;
+    margin-top:10px;
+    font-size:14px;
+    line-height:1.6;
+}
+.poster-caption{
+    margin-top:10px;
+    text-align:center;
+    font-size:15px;
+    font-weight:600;
+    color:#ffcc80;
+    letter-spacing:0.3px;
+}
+.poster-caption span{
+    display:block;
+    margin-top:4px;
+    font-size:13px;
+    color:#cfcfcf;
+    font-weight:400;
+}
+</style>
 </head>
+
 <body>
-    <div id="root"></div>
 
-    <script type="module">
-        import React, { useState, useEffect, useCallback } from 'https://esm.sh/react@19.0.0';
-        import ReactDOM from 'https://esm.sh/react-dom@19.0.0/client';
+<div class="header">
+  <h1>
+    <img src="vishnu1.png" class="header-logo">
+    RR INTERNATIONAL COLLEGE
+  </h1>
+  <p>Notices & Updates</p>
+</div>
 
-        const ADMIN_PASSWORD = "Pawan2029@";
+<div class="container">
 
-        const hexToRgba = (hex, alpha) => {
-            if (!hex) return `rgba(0,0,0,${alpha})`;
-            if (hex.startsWith('rgba')) return hex;
-            const r = parseInt(hex.slice(1, 3), 16);
-            const g = parseInt(hex.slice(3, 5), 16);
-            const b = parseInt(hex.slice(5, 7), 16);
-            return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-        };
+<button onclick="trackAndGo('chairman')" class="nav-btn">
+👨‍🏫 OUR CHAIRMAN – Shri R. R. Pardeshi
+</button>
 
-        const safeB64Encode = (str) => btoa(unescape(encodeURIComponent(str)));
-        const safeB64Decode = (str) => decodeURIComponent(escape(atob(str)));
+<!-- 🔔 NOTICE FROM notice.json -->
+<div id="noticeBox"></div>
 
-        const App = () => {
-          const [activeTab, setActiveTab] = useState('notice');
-          const [isUnlocked, setIsUnlocked] = useState(false);
-          const [passwordInput, setPasswordInput] = useState('');
-          
-          const [config, setConfig] = useState(() => {
-            const saved = localStorage.getItem('rr_admin_config_v12');
-            return saved ? JSON.parse(saved) : { token: '', owner: '', repo: '' };
-          });
 
-          const [noticeData, setNoticeData] = useState({ 
-            show: true, title: '', message: [], updates: { version: '', items: [] } 
-          });
-          const [announcementData, setAnnouncementData] = useState({ 
-            id: 'notice-default', show: false, title: '', message: '',
-            theme: { gradient: ["#ff9800", "#ff5722"], glow: { color: "#ff9800", blur: 30, intensity: 1 }, textColor: "#ffffff", buttonColor: "#000000" }
-          });
-          const [eventsData, setEventsData] = useState({ show: true, events: [] });
-          const [leaderboardData, setLeaderboardData] = useState({ show: true, title: 'Annual Sports Results', sports: [] });
+<div class="streak-mini">
+🔥 Daily Streak
+<b><span id="streakCount">1</span> Day</b>
+</div>
 
-          const [shas, setShas] = useState({ 
-            notice: null, announcement: null, events: null, leaderboard: null
-          });
 
-          const [loading, setLoading] = useState(false);
-          const [status, setStatus] = useState(null);
-          const [showSettings, setShowSettings] = useState(false);
 
-          useEffect(() => {
-            localStorage.setItem('rr_admin_config_v12', JSON.stringify(config));
-          }, [config]);
+<div class="ai-box">
+<div class="ai-header" onclick="toggleAI()">
+  <h2>🤖 Student Helper</h2>
+  <span class="ai-toggle" id="aiToggle">Tap to open</span>
+</div>
+<div class="ai-content" id="aiContent">
+  <button class="ai-btn ai-pay" onclick="aiReply('payment')">Nothing</button>
+  <button class="ai-btn ai-game" onclick="aiReply('ai_game')">🎮 How to play with RR AI Bot?</button>
+  <div class="ai-answer" id="aiAnswer"></div>
+</div>
+</div>
 
-          const notify = (type, message) => {
-            setStatus({ type, message });
-            setTimeout(() => setStatus(null), 5000);
-          };
+<div class="grid">
+  <button class="btn-payment" onclick="trackAndGo('payment')">🎟️ Payment</button>
+  <button class="btn-promo" onclick="trackAndGo('promo')">🎬 Promo</button>
+  <button class="btn-album" onclick="trackAndGo('album')">📸 Album</button>
+  <button class="btn-events" onclick="trackAndGo('events')">📅 Events</button>
+</div>
 
-          const handleUnlock = (e) => {
-            e.preventDefault();
-            if (passwordInput === ADMIN_PASSWORD) {
-              setIsUnlocked(true);
-              setPasswordInput('');
-              notify('success', 'Admin session unlocked.');
-            } else {
-              notify('error', 'Authentication failed.');
-            }
-          };
+<button class="share-app-btn" onclick="location.href='shareapp.html'">
+📤 Share RR Events App
+</button>
 
-          const toggleSettings = () => {
-            if (showSettings) {
-              setIsUnlocked(false);
-              setShowSettings(false);
-              setPasswordInput('');
-              notify('success', 'Settings closed.');
-            } else {
-              setShowSettings(true);
-            }
-          };
+<div class="app-footer">
+  <span class="powered-text">Powered by </span>
+  <span class="powered-brand">RR International College</span>
+</div>
 
-          const getCurrentFilePath = () => {
-            switch (activeTab) {
-              case 'notice': return 'notice.json';
-              case 'announcement': return 'announcement.json';
-              case 'events': return 'events.json';
-              case 'leaderboard': return 'leaderboard.json';
-              default: return 'notice.json';
-            }
-          };
+</div>
+<script>
+/* ================= NOTICE FETCH ================= */
+fetch('notice.json?t=' + Date.now())
+  .then(res => res.json())
+  .then(data => {
+    if (!data.show) return;
 
-          const getDisplayName = useCallback(() => {
-            switch (activeTab) {
-              case 'notice': return 'Notice Board';
-              case 'announcement': return 'Announcement Pop-up';
-              case 'events': return 'Events Manager';
-              case 'leaderboard': return 'Sports Leaderboard';
-              default: return 'Management';
-            }
-          }, [activeTab]);
+    let messagesHTML = '';
+    data.message.forEach(line => {
+      messagesHTML += `<p class="text-muted">${line}</p>`;
+    });
 
-          const handleSync = async (targetTab = activeTab) => {
-            if (!config.token || !config.owner || !config.repo) {
-              notify('error', 'Config missing. Check Settings.');
-              return;
-            }
-            setLoading(true);
-            const path = getCurrentFilePath();
-            
-            try {
-              const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${path}`;
-              const res = await fetch(url, {
-                headers: { 'Authorization': `token ${config.token}`, 'Accept': 'application/vnd.github.v3+json' }
-              });
-              if (!res.ok) throw new Error('Sync failed.');
-              const data = await res.json();
-              const content = JSON.parse(safeB64Decode(data.content));
-              
-              if (activeTab === 'notice') { setNoticeData(content); setShas(p => ({...p, notice: data.sha})); }
-              else if (activeTab === 'announcement') { setAnnouncementData(content); setShas(p => ({...p, announcement: data.sha})); }
-              else if (activeTab === 'events') { setEventsData(content); setShas(p => ({...p, events: data.sha})); }
-              else if (activeTab === 'leaderboard') { setLeaderboardData(content); setShas(p => ({...p, leaderboard: data.sha})); }
-              
-              notify('success', `${activeTab} synchronized.`);
-            } catch (err) {
-              notify('error', err.message);
-            } finally {
-              setLoading(false);
-            }
-          };
+    let updatesHTML = '';
+    if (data.updates && data.updates.items.length > 0) {
+      updatesHTML = `
+        <div class="update-header" onclick="toggleUpdates()">
+          <b>🆕 ${data.updates.version}</b>
+          <span class="update-toggle" id="updateToggle">Tap to open</span>
+        </div>
 
-          const handlePublish = async (targetTab = activeTab) => {
-            if (!config.token || !config.owner || !config.repo) {
-              notify('error', 'Incomplete config.');
-              return;
-            }
-            setLoading(true);
-            const path = getCurrentFilePath();
+        <div class="update-content" id="updateContent">
+          <p><b>🚀 What’s New:</b><br>
+            ${data.updates.items.map(i => `• ${i}`).join('<br>')}
+          </p>
+        </div>
+      `;
+    }
 
-            // Pre-fetch latest SHA
-            let latestSha = shas[activeTab];
-            try {
-                const headRes = await fetch(`https://api.github.com/repos/${config.owner}/${config.repo}/contents/${path}`, {
-                  headers: { 'Authorization': `token ${config.token}`, 'Accept': 'application/vnd.github.v3+json' }
-                });
-                if (headRes.ok) {
-                    const headData = await headRes.json();
-                    latestSha = headData.sha;
-                }
-            } catch(e) {}
+    document.getElementById("noticeBox").innerHTML = `
+      <div class="event">
+        <h2>${data.title}</h2>
+        ${messagesHTML}
+        ${updatesHTML}
+      </div>
+    `;
+  })
+  .catch(err => console.log('Notice error:', err));
 
-            let currentData;
-            if (activeTab === 'notice') currentData = noticeData;
-            else if (activeTab === 'announcement') currentData = { ...announcementData, id: 'ann-' + Date.now() };
-            else if (activeTab === 'events') currentData = eventsData;
-            else if (activeTab === 'leaderboard') currentData = leaderboardData;
+/* ================= DAILY STREAK ================= */
+let today = new Date().toDateString();
+let last = localStorage.getItem("lastOpenDate");
+let streak = parseInt(localStorage.getItem("dailyStreak") || "0");
 
-            try {
-              const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${path}`;
-              const body = {
-                message: `Admin Update: ${activeTab} via Control Center`,
-                content: safeB64Encode(JSON.stringify(currentData, null, 2))
-              };
-              if (latestSha) body.sha = latestSha;
+if (last !== today) {
+  streak = last ? streak + 1 : 1;
+  localStorage.setItem("dailyStreak", streak);
+  localStorage.setItem("lastOpenDate", today);
+}
+document.getElementById("streakCount").innerText = streak;
 
-              const res = await fetch(url, {
-                method: 'PUT',
-                headers: { 'Authorization': `token ${config.token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
-                body: JSON.stringify(body)
-              });
-              if (!res.ok) throw new Error('Publication failed.');
-              const resData = await res.json();
-              setShas(prev => ({ ...prev, [activeTab]: resData.content.sha }));
-              notify('success', `${activeTab} updated successfully.`);
-            } catch (err) {
-              notify('error', err.message);
-            } finally {
-              setLoading(false);
-            }
-          };
 
-          const addChangelogItem = () => setNoticeData(prev => ({ ...prev, updates: { ...prev.updates, items: [...(prev.updates?.items || []), ''] } }));
-          const updateChangelogItem = (idx, val) => {
-            const newItems = [...(noticeData.updates?.items || [])];
-            newItems[idx] = val;
-            setNoticeData(prev => ({ ...prev, updates: { ...prev.updates, items: newItems } }));
-          };
-          const removeChangelogItem = (idx) => setNoticeData(prev => ({ ...prev, updates: { ...prev.updates, items: prev.updates.items.filter((_, i) => i !== idx) } }));
+/* ================= 4PM COUNTDOWN ================= */
 
-          const addEvent = () => {
-            const newEvent = { title: 'New Event', content: ['Description here'], theme: { gradient: ["#ff9800", "#ff5722"], glow: { color: "#ff9800", blur: 30, intensity: 0.8 } } };
-            setEventsData(prev => ({ ...prev, events: [newEvent, ...prev.events] }));
-          };
+const countdownEl = document.getElementById("countdown");
+const subTextEl = document.getElementById("countdownSub");
 
-          const addSport = () => {
-            const newSport = { sport: 'Sport Name', winners: [{ position: 1, name: 'TBD', class: 'N/A' }] };
-            setLeaderboardData(prev => ({ ...prev, sports: [...prev.sports, newSport] }));
-          };
+const now = new Date();
+const festTime = new Date(
+  now.getFullYear(),
+  now.getMonth(),
+  now.getDate(),
+  16, 0, 0
+).getTime();
 
-          const updateSport = (idx, field, value) => {
-            const newSports = [...leaderboardData.sports];
-            newSports[idx][field] = value;
-            setLeaderboardData({ ...leaderboardData, sports: newSports });
-          };
+setInterval(() => {
+  const diff = festTime - Date.now();
 
-          const addWinnerRow = (sIdx) => {
-            const sports = [...leaderboardData.sports];
-            sports[sIdx].winners.push({ position: sports[sIdx].winners.length + 1, name: '', class: '' });
-            setLeaderboardData({ ...leaderboardData, sports });
-          };
+  if (diff > 0) {
+    const total = Math.floor(diff / 1000);
+    const h = Math.floor(total / 3600);
+    const m = Math.floor((total % 3600) / 60);
+    const s = total % 60;
 
-          const updateWinner = (sIdx, wIdx, field, value) => {
-            const newSports = [...leaderboardData.sports];
-            newSports[sIdx].winners[wIdx][field] = field === 'position' ? parseInt(value) : value;
-            setLeaderboardData({ ...leaderboardData, sports: newSports });
-          };
+    countdownEl.innerText = `${h}h : ${m}m : ${s}s`;
+    subTextEl.innerText =
+      total <= 60
+        ? "⚠️ FINAL MOMENT!"
+        : "Get ready for the biggest celebration 🎉";
+    return;
+  }
 
-          const removeWinnerRow = (sIdx, wIdx) => {
-            const sports = [...leaderboardData.sports];
-            sports[sIdx].winners = sports[sIdx].winners.filter((_, i) => i !== wIdx);
-            setLeaderboardData({ ...leaderboardData, sports });
-          };
+  countdownEl.innerText = "🎉 FEST STARTED!";
+  subTextEl.innerText = "Karmanya Fest is LIVE 🔥";
+}, 1000);
 
-          const removeSport = (sIdx) => {
-            setLeaderboardData(p => ({ ...p, sports: p.sports.filter((_, i) => i !== sIdx) }));
-          };
+/* ================= STUDENT HELPER ================= */
+function toggleAI() {
+  const box = document.getElementById("aiContent");
+  const t = document.getElementById("aiToggle");
+  box.style.display = box.style.display === "block" ? "none" : "block";
+  t.innerText = box.style.display === "block" ? "Tap to close" : "Tap to open";
+}
 
-          return React.createElement('div', { className: "min-h-screen p-4 md:p-8 max-w-7xl mx-auto flex flex-col gap-6" }, [
-            React.createElement('header', { key: 'header', className: "flex flex-col xl:flex-row justify-between items-center gap-6 bg-[#161b22] p-5 rounded-[2.5rem] border border-slate-800 shadow-2xl relative" }, [
-              React.createElement('div', { key: 'logo', className: "flex items-center gap-4" }, [
-                React.createElement('div', { key: 'rr', className: "bg-gradient-to-br from-orange-500 to-amber-600 w-12 h-12 rounded-2xl flex items-center justify-center font-black text-xl text-white shadow-xl shadow-orange-900/40" }, "RR"),
-                React.createElement('div', { key: 'title' }, [
-                  React.createElement('h1', { key: 'h1', className: "text-lg font-black text-white tracking-tight" }, "College Control Center"),
-                  React.createElement('p', { key: 'p', className: "text-[9px] text-slate-500 font-bold uppercase tracking-[0.2em]" }, "Management Suite v2.5")
-                ])
-              ]),
-              React.createElement('div', { key: 'tabs', className: "bg-black/40 p-1 rounded-2xl flex flex-wrap justify-center items-center gap-1 border border-slate-800/50" }, 
-                ['notice', 'announcement', 'events', 'leaderboard'].map(tab => (
-                  React.createElement('button', { 
-                    key: tab,
-                    onClick: () => setActiveTab(tab),
-                    className: `px-5 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${activeTab === tab ? 'bg-orange-600 text-white shadow-lg' : 'text-slate-500 hover:text-slate-300'}`
-                  }, tab.charAt(0).toUpperCase() + tab.slice(1))
-                ))
-              ),
-              React.createElement('div', { key: 'actions', className: "flex flex-col items-center xl:items-end gap-2" }, [
-                React.createElement('div', { key: 'btns', className: "flex gap-2" }, [
-                  React.createElement('button', { key: 'cfg', onClick: toggleSettings, className: `px-5 py-3 rounded-2xl text-xs font-black border transition-all ${showSettings ? 'bg-white text-black' : 'bg-slate-800 border-slate-700 text-slate-300'}` }, showSettings ? '✕ Close' : '⚙️ Config'),
-                  React.createElement('button', { key: 'sync', onClick: () => handleSync(), disabled: loading, className: "px-5 py-3 bg-blue-600 hover:bg-blue-500 rounded-2xl text-xs font-black text-white shadow-lg shadow-blue-900/30 disabled:opacity-50 flex items-center gap-2" }, 
-                    loading ? React.createElement('div', { className: "loader" }) : "🔄 Sync Live"
-                  )
-                ]),
-                React.createElement('div', { key: 'contact', className: "flex items-center gap-3 mt-1 pr-2" }, [
-                  React.createElement('span', { className: "text-[11px] uppercase tracking-widest name-glow" }, "Pawan Ponnam"),
-                  React.createElement('a', { href: "https://wa.me/919867637326", target: "_blank", className: "px-3 py-1 bg-green-600 hover:bg-green-500 text-white text-[9px] font-black uppercase rounded-lg shadow-lg shadow-green-900/20 flex items-center gap-1 transition-all" }, "💬 Help")
-                ])
-              ])
-            ]),
-            showSettings && React.createElement('section', { key: 'settings', className: "glass-panel p-8 rounded-[3rem] animate-slide-up bg-orange-500/5 border-orange-500/20 shadow-[0_0_40px_rgba(249,115,22,0.1)]" }, [
-              !isUnlocked ? React.createElement('div', { key: 'lock', className: "max-w-md mx-auto py-6 text-center" }, [
-                React.createElement('div', { className: "mb-4 text-3xl" }, "🔒"),
-                React.createElement('h3', { className: "text-sm font-black text-white uppercase tracking-widest mb-2" }, "Authorize Access"),
-                React.createElement('form', { onSubmit: handleUnlock, className: "flex flex-col gap-3" }, [
-                  React.createElement('input', { type: "password", autoFocus: true, value: passwordInput, onChange: e => setPasswordInput(e.target.value), className: "w-full bg-black/60 border border-slate-800 p-4 rounded-2xl focus:border-orange-500 outline-none text-center font-mono tracking-widest text-lg", placeholder: "••••••••" }),
-                  React.createElement('button', { type: "submit", className: "bg-orange-600 hover:bg-orange-500 text-white font-black py-4 rounded-2xl text-xs uppercase tracking-widest" }, "Unlock Panel")
-                ])
-              ]) : React.createElement('div', { key: 'config-form', className: "grid grid-cols-1 md:grid-cols-3 gap-6" }, [
-                React.createElement('div', null, [
-                  React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase mb-2 block tracking-widest pl-1" }, "Access Token"),
-                  React.createElement('input', { type: "password", value: config.token, onChange: e => setConfig({...config, token: e.target.value}), className: "w-full bg-black/40 border border-slate-800 p-4 rounded-2xl focus:border-orange-500 outline-none text-sm text-slate-300" })
-                ]),
-                React.createElement('div', null, [
-                  React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase mb-2 block tracking-widest pl-1" }, "Repo Owner"),
-                  React.createElement('input', { value: config.owner, onChange: e => setConfig({...config, owner: e.target.value}), className: "w-full bg-black/40 border border-slate-800 p-4 rounded-2xl focus:border-orange-500 outline-none text-sm text-slate-300" })
-                ]),
-                React.createElement('div', null, [
-                  React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase mb-2 block tracking-widest pl-1" }, "Repo Name"),
-                  React.createElement('input', { value: config.repo, onChange: e => setConfig({...config, repo: e.target.value}), className: "w-full bg-black/40 border border-slate-800 p-4 rounded-2xl focus:border-orange-500 outline-none text-sm text-slate-300" })
-                ])
-              ])
-            ]),
-            status && React.createElement('div', { key: 'notify', className: `fixed bottom-8 right-8 z-[100] p-4 rounded-2xl border shadow-2xl flex items-center gap-3 animate-slide-up backdrop-blur-xl ${status.type === 'success' ? 'bg-green-600/10 border-green-500 text-green-400' : 'bg-red-600/10 border-red-500 text-red-400'}` }, 
-              React.createElement('span', { className: "font-bold text-xs tracking-wide uppercase" }, status.message)
-            ),
-            React.createElement('div', { key: 'main', className: "grid grid-cols-1 lg:grid-cols-12 gap-8" }, [
-              React.createElement('div', { key: 'editor', className: "lg:col-span-8 space-y-8" }, 
-                React.createElement('section', { className: "glass-panel p-8 md:p-10 rounded-[3rem] shadow-2xl relative overflow-hidden" }, [
-                  React.createElement('div', { className: "flex justify-between items-center mb-8 pb-6 border-b border-slate-800/50" }, [
-                    React.createElement('div', null, [
-                      React.createElement('p', { className: "text-[10px] font-black text-orange-500 uppercase tracking-[0.4em] mb-1" }, "Editor Session"),
-                      React.createElement('h2', { className: "text-2xl font-black text-white uppercase tracking-tight" }, getDisplayName())
-                    ]),
-                    React.createElement('button', { 
-                      onClick: () => {
-                        if(activeTab === 'notice') setNoticeData(p => ({...p, show: !p.show}));
-                        else if(activeTab === 'announcement') setAnnouncementData(p => ({...p, show: !p.show}));
-                        else if(activeTab === 'events') setEventsData(p => ({...p, show: !p.show}));
-                        else setLeaderboardData(p => ({...p, show: !p.show}));
-                      },
-                      className: `px-5 py-2 rounded-full text-[9px] font-black transition-all border-2 ${
-                        (activeTab === 'notice' ? noticeData.show : activeTab === 'announcement' ? announcementData.show : activeTab === 'events' ? eventsData.show : leaderboardData.show) ? 'bg-green-600/10 border-green-500 text-green-400' : 'bg-slate-800 border-slate-700 text-slate-500'
-                      }`
-                    }, "● PUBLIC STATUS")
-                  ]),
+function toggleUpdates() {
+  const box = document.getElementById("updateContent");
+  const t = document.getElementById("updateToggle");
+  box.style.display = box.style.display === "block" ? "none" : "block";
+  t.innerText = box.style.display === "block" ? "Tap to close" : "Tap to open";
+}
 
-                  // Tabs Switcher for Content
-                  React.createElement('div', { className: "space-y-8" }, 
-                    activeTab === 'notice' ? React.createElement('div', { className: "space-y-8" }, [
-                      React.createElement('div', null, [
-                        React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-2 pl-1" }, "Primary Headline"),
-                        React.createElement('input', { value: noticeData.title, onChange: e => setNoticeData({...noticeData, title: e.target.value}), className: "w-full bg-[#0d1117] border border-slate-800 p-5 rounded-3xl text-xl font-bold text-white focus:border-orange-500 outline-none" })
-                      ]),
-                      React.createElement('div', null, [
-                        React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-2 pl-1" }, "Body Content (Full Text)"),
-                        React.createElement('textarea', { value: noticeData.message.join('\n'), onChange: e => setNoticeData({...noticeData, message: e.target.value.split('\n')}), rows: 10, className: "w-full bg-[#0d1117] border border-slate-800 p-5 rounded-3xl text-slate-300 resize-none outline-none focus:border-orange-500" })
-                      ]),
-                      React.createElement('div', { className: "space-y-6 pt-6 border-t border-slate-800/50" }, [
-                        React.createElement('div', null, [
-                          React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-2 pl-1" }, "Version Tag"),
-                          React.createElement('input', { value: noticeData.updates?.version || '', onChange: e => setNoticeData({...noticeData, updates: { ...noticeData.updates, version: e.target.value }}), className: "w-full bg-[#0d1117] border border-slate-800 p-4 rounded-2xl text-sm font-bold text-slate-400 focus:border-orange-500 outline-none", placeholder: "e.g. New App Updates v2.1" })
-                        ]),
-                        React.createElement('div', null, [
-                          React.createElement('div', { className: "flex justify-between items-center mb-4" }, [
-                            React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase tracking-widest pl-1" }, "Changelog Items"),
-                            React.createElement('button', { onClick: addChangelogItem, className: "text-[8px] font-black uppercase text-orange-500 bg-orange-500/10 px-3 py-1.5 rounded-lg border border-orange-500/20" }, "+ Add New Line")
-                          ]),
-                          React.createElement('div', { className: "space-y-2" }, 
-                            !(noticeData.updates?.items?.length) ? 
-                              React.createElement('div', { className: "py-4 text-center text-slate-700 text-[10px] font-black uppercase tracking-widest" }, "No Changelog Items Added") :
-                              noticeData.updates.items.map((item, idx) => 
-                                React.createElement('div', { key: idx, className: "flex gap-2" }, [
-                                  React.createElement('input', { value: item, onChange: e => updateChangelogItem(idx, e.target.value), className: "flex-1 bg-[#161b22] border border-slate-800 p-3 rounded-xl text-xs text-white focus:border-orange-500 outline-none" }),
-                                  React.createElement('button', { onClick: () => removeChangelogItem(idx), className: "px-3 bg-red-900/10 text-red-500 hover:bg-red-600 hover:text-white rounded-xl transition-all" }, "✕")
-                                ])
-                              )
-                          )
-                        ])
-                      ])
-                    ]) : activeTab === 'announcement' ? React.createElement('div', { className: "space-y-8" }, [
-                      React.createElement('div', null, [
-                        React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-2 pl-1" }, "Primary Headline"),
-                        React.createElement('input', { value: announcementData.title, onChange: e => setAnnouncementData({...announcementData, title: e.target.value}), className: "w-full bg-[#0d1117] border border-slate-800 p-5 rounded-3xl text-xl font-bold text-white focus:border-orange-500 outline-none" })
-                      ]),
-                      React.createElement('div', null, [
-                        React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase tracking-widest block mb-2 pl-1" }, "Body Content (Full Text)"),
-                        React.createElement('textarea', { value: announcementData.message, onChange: e => setAnnouncementData({...announcementData, message: e.target.value}), rows: 10, className: "w-full bg-[#0d1117] border border-slate-800 p-5 rounded-3xl text-slate-300 resize-none outline-none focus:border-orange-500" })
-                      ]),
-                      React.createElement('div', { className: "space-y-6 pt-6 border-t border-slate-800/50" }, [
-                        React.createElement('div', null, [
-                          React.createElement('div', { className: "flex justify-between items-center mb-4" }, [
-                            React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase tracking-widest pl-1" }, "Gradient Colors"),
-                            React.createElement('button', { onClick: () => { let up = {...announcementData}; up.theme.gradient.push('#ffffff'); setAnnouncementData(up) }, className: "text-[8px] font-black uppercase text-orange-500 px-3 py-1 bg-orange-500/10 rounded-lg" }, "+ Add Color")
-                          ]),
-                          React.createElement('div', { className: "grid grid-cols-2 sm:grid-cols-4 gap-3" }, (announcementData.theme?.gradient || []).map((col, ci) => 
-                            React.createElement('div', { key: ci, className: "relative group/color" }, [
-                              React.createElement('div', { className: "color-input-wrapper" }, React.createElement('input', { type: "color", value: col, onChange: e => { let up = {...announcementData}; up.theme.gradient[ci] = e.target.value; setAnnouncementData(up) } })),
-                              ci > 1 && React.createElement('button', { onClick: () => { let up = {...announcementData}; up.theme.gradient = up.theme.gradient.filter((_, i) => i !== ci); setAnnouncementData(up) }, className: "absolute -top-1 -right-1 bg-red-600 text-white rounded-full w-4 h-4 text-[8px] opacity-0 group-hover/color:opacity-100 transition-opacity" }, "✕")
-                            ])
-                          ))
-                        ]),
-                        React.createElement('div', { className: "grid grid-cols-1 md:grid-cols-3 gap-6" }, [
-                          React.createElement('div', null, [
-                            React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase mb-2 block tracking-widest pl-1" }, "Glow Color"),
-                            React.createElement('div', { className: "color-input-wrapper" }, React.createElement('input', { type: "color", value: announcementData.theme?.glow?.color || '#ff9800', onChange: e => setAnnouncementData(p => ({...p, theme: {...p.theme, glow: {...p.theme.glow, color: e.target.value}}})) }))
-                          ]),
-                          React.createElement('div', null, [
-                            React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase mb-2 block tracking-widest pl-1" }, `Blur: ${announcementData.theme?.glow?.blur || 30}px`),
-                            React.createElement('input', { type: "range", min: "0", max: "100", value: announcementData.theme?.glow?.blur || 30, onChange: e => setAnnouncementData(p => ({...p, theme: {...p.theme, glow: {...p.theme.glow, blur: parseInt(e.target.value)}}})) , className: "w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-orange-500" })
-                          ]),
-                          React.createElement('div', null, [
-                            React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase mb-2 block tracking-widest pl-1" }, `Intensity: ${Math.round((announcementData.theme?.glow?.intensity || 1) * 100)}%`),
-                            React.createElement('input', { type: "range", min: "0", max: "1", step: "0.01", value: announcementData.theme?.glow?.intensity || 1, onChange: e => setAnnouncementData(p => ({...p, theme: {...p.theme, glow: {...p.theme.glow, intensity: parseFloat(e.target.value)}}})) , className: "w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-orange-500" })
-                          ])
-                        ]),
-                        React.createElement('div', { className: "grid grid-cols-2 gap-6" }, [
-                          React.createElement('div', null, [
-                            React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase mb-2 block tracking-widest pl-1" }, "Text Color"),
-                            React.createElement('div', { className: "color-input-wrapper" }, React.createElement('input', { type: "color", value: announcementData.theme?.textColor || '#ffffff', onChange: e => setAnnouncementData(p => ({...p, theme: {...p.theme, textColor: e.target.value}})) }))
-                          ]),
-                          React.createElement('div', null, [
-                            React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase mb-2 block tracking-widest pl-1" }, "Button Color"),
-                            React.createElement('div', { className: "color-input-wrapper" }, React.createElement('input', { type: "color", value: announcementData.theme?.buttonColor || '#000000', onChange: e => setAnnouncementData(p => ({...p, theme: {...p.theme, buttonColor: e.target.value}})) }))
-                          ])
-                        ])
-                      ])
-                    ]) : activeTab === 'events' ? React.createElement('div', { className: "space-y-8" }, [
-                      React.createElement('button', { onClick: addEvent, className: "w-full py-4 border-2 border-dashed border-slate-800 rounded-3xl text-slate-500 hover:text-orange-500 hover:border-orange-500 transition-all font-black uppercase tracking-widest text-[10px]" }, "+ Add New Event Card"),
-                      eventsData.events.map((ev, idx) => React.createElement('div', { key: idx, className: "bg-black/40 p-6 rounded-[2rem] border border-slate-800 relative group" }, [
-                        React.createElement('button', { onClick: () => setEventsData(p => ({...p, events: p.events.filter((_, i) => i !== idx)})), className: "absolute -top-3 -right-3 w-8 h-8 bg-red-600 rounded-full flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity" }, "✕"),
-                        React.createElement('input', { value: ev.title, onChange: e => { let up = [...eventsData.events]; up[idx].title = e.target.value; setEventsData({...eventsData, events: up}) }, className: "w-full bg-[#0d1117] border border-slate-800 p-4 rounded-2xl text-lg font-bold text-white mb-4 outline-none focus:border-orange-500" }),
-                        React.createElement('textarea', { value: ev.content.join('\n'), onChange: e => { let up = [...eventsData.events]; up[idx].content = e.target.value.split('\n'); setEventsData({...eventsData, events: up}) }, rows: 4, className: "w-full bg-[#0d1117] border border-slate-800 p-4 rounded-2xl text-sm text-slate-400 outline-none focus:border-orange-500 mb-4" }),
-                        
-                        React.createElement('div', { className: "space-y-6 pt-4 border-t border-slate-800/50" }, [
-                          React.createElement('div', null, [
-                            React.createElement('div', { className: "flex justify-between items-center mb-4" }, [
-                              React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase tracking-widest pl-1" }, "Gradient Colors"),
-                              React.createElement('button', { onClick: () => { let up = [...eventsData.events]; up[idx].theme.gradient.push('#ffffff'); setEventsData({...eventsData, events: up}) }, className: "text-[8px] font-black uppercase text-orange-500 px-3 py-1 bg-orange-500/10 rounded-lg" }, "+ Add Color")
-                            ]),
-                            React.createElement('div', { className: "grid grid-cols-2 sm:grid-cols-4 gap-3" }, (ev.theme?.gradient || []).map((col, ci) => 
-                              React.createElement('div', { key: ci, className: "relative group/color-ev" }, [
-                                React.createElement('div', { className: "color-input-wrapper h-10" }, React.createElement('input', { type: "color", value: col, onChange: e => { let up = [...eventsData.events]; up[idx].theme.gradient[ci] = e.target.value; setEventsData({...eventsData, events: up}) } })),
-                                ci > 1 && React.createElement('button', { onClick: () => { let up = [...eventsData.events]; up[idx].theme.gradient = up[idx].theme.gradient.filter((_, i) => i !== ci); setEventsData({...eventsData, events: up}) }, className: "absolute -top-1 -right-1 bg-red-600 text-white rounded-full w-4 h-4 text-[8px] opacity-0 group-hover/color-ev:opacity-100 transition-opacity" }, "✕")
-                              ])
-                            ))
-                          ]),
-                          React.createElement('div', { className: "grid grid-cols-1 md:grid-cols-3 gap-4" }, [
-                            React.createElement('div', null, [
-                              React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase mb-2 block tracking-widest pl-1" }, "Glow Color"),
-                              React.createElement('div', { className: "color-input-wrapper h-10" }, React.createElement('input', { type: "color", value: ev.theme?.glow?.color || '#ff9800', onChange: e => { let up = [...eventsData.events]; up[idx].theme.glow.color = e.target.value; setEventsData({...eventsData, events: up}) } }))
-                            ]),
-                            React.createElement('div', null, [
-                              React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase mb-2 block tracking-widest pl-1" }, `Blur: ${ev.theme?.glow?.blur || 30}px`),
-                              React.createElement('input', { type: "range", min: "0", max: "100", value: ev.theme?.glow?.blur || 30, onChange: e => { let up = [...eventsData.events]; up[idx].theme.glow.blur = parseInt(e.target.value); setEventsData({...eventsData, events: up}) }, className: "w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-orange-500" })
-                            ]),
-                            React.createElement('div', null, [
-                              React.createElement('label', { className: "text-[10px] font-black text-slate-500 uppercase mb-2 block tracking-widest pl-1" }, `Intensity: ${Math.round((ev.theme?.glow?.intensity || 0.8) * 100)}%`),
-                              React.createElement('input', { type: "range", min: "0", max: "1", step: "0.01", value: ev.theme?.glow?.intensity || 0.8, onChange: e => { let up = [...eventsData.events]; up[idx].theme.glow.intensity = parseFloat(e.target.value); setEventsData({...eventsData, events: up}) }, className: "w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-orange-500" })
-                            ])
-                          ])
-                        ])
-                      ]))
-                    ]) : React.createElement('div', { className: "space-y-10" }, [
-                      React.createElement('input', { value: leaderboardData.title, onChange: e => setLeaderboardData({...leaderboardData, title: e.target.value}), className: "w-full bg-[#0d1117] border border-slate-800 p-5 rounded-3xl text-xl font-bold text-white focus:border-orange-500 outline-none" }),
-                      React.createElement('button', { onClick: addSport, className: "w-full py-4 border-2 border-dashed border-slate-800 rounded-3xl text-slate-500 hover:text-orange-500 hover:border-orange-500 transition-all font-black uppercase tracking-widest text-[10px]" }, "+ Add New Sport Section"),
-                      leaderboardData.sports.map((sport, sIdx) => 
-                        React.createElement('div', { key: sIdx, className: "bg-black/40 p-8 rounded-[2rem] border border-slate-800 relative group" }, [
-                          React.createElement('button', { onClick: () => removeSport(sIdx), className: "absolute -top-3 -right-3 w-8 h-8 bg-red-600 rounded-full flex items-center justify-center text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity shadow-lg" }, "✕"),
-                          React.createElement('input', { value: sport.sport, onChange: e => updateSport(sIdx, 'sport', e.target.value), className: "w-full bg-[#0d1117] border border-slate-800 p-4 rounded-2xl text-lg font-bold text-orange-500 mb-6 outline-none focus:border-orange-500" }),
-                          React.createElement('div', { className: "space-y-4" }, [
-                            React.createElement('div', { className: "flex justify-between items-center" }, [
-                              React.createElement('label', { className: "text-[9px] font-black text-slate-600 uppercase" }, "Winners Details"),
-                              React.createElement('button', { onClick: () => addWinnerRow(sIdx), className: "text-[8px] font-black uppercase text-orange-500 bg-orange-500/10 px-3 py-1.5 rounded-lg" }, "+ Add")
-                            ]),
-                            sport.winners.map((winner, wIdx) => 
-                              React.createElement('div', { key: wIdx, className: "grid grid-cols-12 gap-3 items-center" }, [
-                                React.createElement('input', { type: "number", value: winner.position, onChange: e => updateWinner(sIdx, wIdx, 'position', e.target.value), className: "col-span-2 bg-black/60 border border-slate-800 p-3 rounded-xl text-xs font-black text-white text-center" }),
-                                React.createElement('input', { value: winner.name, onChange: e => updateWinner(sIdx, wIdx, 'name', e.target.value), className: "col-span-5 bg-black/60 border border-slate-800 p-3 rounded-xl text-xs text-white" }),
-                                React.createElement('input', { value: winner.class, onChange: e => updateWinner(sIdx, wIdx, 'class', e.target.value), className: "col-span-3 bg-black/60 border border-slate-800 p-3 rounded-xl text-xs text-slate-500" }),
-                                React.createElement('button', { onClick: () => removeWinnerRow(sIdx, wIdx), className: "col-span-2 text-red-500" }, "✕")
-                              ])
-                            )
-                          ])
-                        ])
-                      )
-                    ])
-                  ),
-                  
-                  React.createElement('button', { 
-                    onClick: () => handlePublish(),
-                    disabled: loading || !shas[activeTab],
-                    className: "w-full mt-12 py-6 bg-gradient-to-r from-orange-600 to-amber-500 text-white font-black text-lg rounded-3xl shadow-2xl transition-all active:scale-[0.97] disabled:opacity-20 flex items-center justify-center gap-4 uppercase tracking-widest"
-                  }, loading ? React.createElement('div', { className: "loader" }) : "🚀 APPLY LIVE CHANGES")
-                ])
-              ),
-              React.createElement('div', { key: 'preview', className: "lg:col-span-4" }, 
-                React.createElement('section', { className: "glass-panel p-8 rounded-[3rem] h-full flex flex-col" }, [
-                  React.createElement('h3', { className: "text-[10px] font-black mb-8 flex items-center gap-3 text-slate-500 uppercase tracking-widest" }, [
-                    React.createElement('span', { className: "w-2 h-2 rounded-full bg-green-500 animate-pulse" }),
-                    "Dynamic Preview"
-                  ]),
-                  React.createElement('div', { className: "flex-1 min-h-[500px] bg-[#0f1117] rounded-[2.5rem] p-4 overflow-y-auto custom-scrollbar shadow-inner" }, 
-                    activeTab === 'notice' ? React.createElement('div', { className: "bg-[#161a22] p-6 rounded-[2rem] border border-slate-800 shadow-2xl relative overflow-hidden" }, [
-                      React.createElement('div', { className: "absolute top-0 left-0 w-full h-1 bg-orange-600" }),
-                      React.createElement('h4', { className: "text-orange-500 font-black text-lg uppercase mb-4" }, noticeData.title || 'Notice Board'),
-                      noticeData.message.map((m, i) => React.createElement('p', { key: i, className: "text-[11px] text-slate-400 mb-2 leading-relaxed" }, m)),
-                      noticeData.updates?.version && React.createElement('div', { className: "mt-6 pt-4 border-t border-slate-800" }, [
-                        React.createElement('span', { className: "text-orange-500 text-[9px] font-black uppercase mb-1 block" }, noticeData.updates.version),
-                        (noticeData.updates.items || []).map((it, idx) => React.createElement('p', { key: idx, className: "text-slate-500 text-[9px] mb-1" }, `• ${it}`))
-                      ])
-                    ]) : activeTab === 'announcement' ? React.createElement('div', { 
-                        className: `p-6 rounded-[2rem] text-center ${announcementData.show ? 'block' : 'opacity-20'}`,
-                        style: { 
-                            background: `linear-gradient(135deg, ${announcementData.theme?.gradient?.join(',') || '#ff9800,#ff5722'})`, 
-                            boxShadow: `0 0 ${announcementData.theme?.glow?.blur || 30}px ${hexToRgba(announcementData.theme?.glow?.color || '#ff9800', announcementData.theme?.glow?.intensity || 0.5)}`, 
-                            color: announcementData.theme?.textColor || '#ffffff' 
-                        } 
-                    }, [
-                       React.createElement('h4', { className: "font-black uppercase text-sm mb-4" }, announcementData.title || 'Pop-up Title'),
-                       React.createElement('p', { className: "text-[11px] leading-relaxed mb-6" }, announcementData.message || 'Pop-up message content...'),
-                       React.createElement('button', { className: "px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest", style: { backgroundColor: announcementData.theme?.buttonColor || '#000', color: announcementData.theme?.textColor || '#fff'} }, "DISMISS")
-                    ]) : activeTab === 'events' ? eventsData.events.map((ev, i) => React.createElement('div', { 
-                        key: i, className: "p-4 mb-4 rounded-xl text-white event-preview-card", 
-                        style: { 
-                            background: `linear-gradient(135deg, ${ev.theme?.gradient?.join(',') || '#ff9800,#ff5722'})`,
-                            boxShadow: `0 0 ${ev.theme?.glow?.blur || 30}px ${hexToRgba(ev.theme?.glow?.color || '#ff9800', ev.theme?.glow?.intensity || 0.8)}`
-                        } 
-                    }, [
-                        React.createElement('h4', { className: "font-black uppercase text-[12px]" }, ev.title),
-                        ev.content.map((c, ci) => React.createElement('p', { key: ci, className: "text-[9px] mt-1.5 opacity-90 leading-tight" }, `• ${c}`))
-                    ])) : React.createElement('div', { className: "w-full" }, [
-                        React.createElement('h2', { className: "text-orange-500 font-black text-center mb-4" }, leaderboardData.title),
-                        leaderboardData.sports.map((s, i) => React.createElement('div', { key: i, className: "bg-[#161a22] p-4 rounded-xl mb-4 border border-slate-800" }, [
-                           React.createElement('h4', { className: "text-amber-500 font-bold uppercase text-[10px] mb-2" }, s.sport),
-                           s.winners.map((w, wi) => React.createElement('div', { key: wi, className: "flex justify-between text-[10px] opacity-70 mb-1" }, [
-                              React.createElement('span', null, `#${w.position} ${w.name}`),
-                              React.createElement('span', null, w.class)
-                           ]))
-                        ]))
-                    ])
-                  )
-                ])
-              )
-            ]),
-            React.createElement('footer', { key: 'footer', className: "text-center pt-24 pb-12 flex flex-col items-center gap-6" }, [
-               React.createElement('div', { className: "flex items-center gap-6 opacity-30 w-full" }, [
-                  React.createElement('div', { className: "h-px flex-1 bg-slate-500" }),
-                  React.createElement('span', { className: "text-[7px] font-black uppercase tracking-[0.8em] text-slate-500 whitespace-nowrap" }, "OFFICIAL SYSTEM"),
-                  React.createElement('div', { className: "h-px flex-1 bg-slate-500" })
-               ]),
-               React.createElement('div', { className: "space-y-4" }, [
-                 React.createElement('p', { className: "text-slate-500 text-[10px] font-black uppercase tracking-[0.4em]" }, "RR INTERNATIONAL COLLEGE"),
-                 React.createElement('div', { className: "bg-[#161b22] px-8 py-4 rounded-[1.5rem] border border-slate-800/50 shadow-xl inline-flex items-center gap-4" }, [
-                   React.createElement('span', { className: "text-slate-500 text-[10px] font-black uppercase tracking-widest" }, "MADE BY"),
-                   React.createElement('div', { className: "w-px h-4 bg-slate-800" }),
-                   React.createElement('span', { className: "name-glow text-[11px] uppercase tracking-[0.2em]" }, "Pawan Ponnam")
-                 ])
-               ]),
-               React.createElement('p', { className: "text-slate-700 text-[8px] font-bold uppercase tracking-[0.6em] mt-4" }, "ENCRYPTED ENVIRONMENT V2.2")
-            ])
-          ]);
-        };
+function aiReply(type) {
+  document.getElementById("aiAnswer").innerText =
+    type === "payment"
+      ? "Nothing "
+      : "Open Games Zone → Tic Tac Toe → Hard Mode 🔥";
+}
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(React.createElement(React.StrictMode, null, React.createElement(App)));
-    </script>
-<script type="module" src="/index.tsx"></script>
-</body>
-</html>
+
+/* ================= NAVIGATION ================= */
+function trackAndGo(t) {
+  if (t === "payment") location.href = "payments.html";
+  if (t === "promo") location.href = "promo.html";
+  if (t === "album") location.href = "event_album.html";
+  if (t === "events") location.href = "events.html";
+  if (t === "chairman") location.href = "chairman.html";
+}
+  /* ================= FIREWORKS ================= */
+
+let fireworksStarted = false;
+
+function startFireworks() {
+  if (fireworksStarted) return;
+  fireworksStarted = true;
+
+  const canvas = document.createElement("canvas");
+  canvas.style.position = "fixed";
+  canvas.style.inset = "0";
+  canvas.style.zIndex = "9999";
+  canvas.style.pointerEvents = "none";
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const fireworks = [];
+
+  class Firework {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = canvas.height;
+      this.t = Math.random() * canvas.height * 0.5;
+      this.exploded = false;
+      this.p = [];
+    }
+    update() {
+      if (!this.exploded) {
+        this.y -= 6;
+        if (this.y < this.t) {
+          this.exploded = true;
+          for (let i = 0; i < 40; i++) {
+            this.p.push({
+              x: this.x,
+              y: this.y,
+              vx: Math.random() * 6 - 3,
+              vy: Math.random() * 6 - 3,
+              a: 1
+            });
+          }
+        }
+      } else {
+        this.p.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.a -= 0.02;
+        });
+      }
+    }
+    draw() {
+      this.p.forEach(p => {
+        ctx.fillStyle = `rgba(255,255,255,${p.a})`;
+        ctx.fillRect(p.x, p.y, 3, 3);
+      });
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (Math.random() < 0.05) fireworks.push(new Firework());
+    fireworks.forEach(f => {
+      f.update();
+      f.draw();
+    });
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  setTimeout(() => canvas.remove(), 20 * 60 * 1000);
+}
+
+function closeAnnouncement(){
+  document.getElementById("announcementPopup").style.display = "none";
+}
+
+fetch("announcement.json?t=" + Date.now())
+  .then(res => res.json())
+  .then(data => {
+    if (!data.show) return;
+
+    const lastSeenId = localStorage.getItem("announcementLastSeen");
+
+    // 🔥 Show popup only if NEW announcement
+    if (lastSeenId === data.id) return;
+
+    document.getElementById("annTitle").innerText =
+      data.title || "Announcement";
+
+    document.getElementById("annMsg").innerHTML =
+      (data.message || "").replace(/\n/g, "<br>");
+
+    document.getElementById("announcementPopup").style.display = "flex";
+
+    // Save current announcement id
+    localStorage.setItem("announcementLastSeen", data.id);
+  })
+  .catch(err => console.log("Announcement error:", err));
+</script>
+<!-- 🔔 ANNOUNCEMENT POPUP -->
+<div id="announcementPopup" style="
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:10000;
+">
+
+  <!-- POPUP CARD -->
+  <div id="announcementCard" style="
+    padding:20px;
+    border-radius:18px;
+    width:90%;
+    max-width:360px;
+    text-align:center;
+    color:#ffffff;
+    background:linear-gradient(135deg,#ff9800,#ff5722,#7b2cff,#2575fc);
+    box-shadow:0 0 35px rgba(255,152,0,.7);
+  ">
+
+    <h2 id="annTitle" style="
+      margin:0 0 10px;
+      font-size:20px;
+      font-weight:800;
+    ">
+      📢 Announcement
+    </h2>
+
+    <p id="annMsg" style="
+      font-size:15px;
+      line-height:1.6;
+      opacity:.95;
+    "></p>
+
+    <button
+      id="annBtn"
+      onclick="closeAnnouncement()"
+      style="
+        margin-top:14px;
+        width:100%;
+        padding:12px;
+        border:none;
+        border-radius:12px;
+        background:#000;
+        color:#fff;
+        font-weight:700;
+        font-size:15px;
+        cursor:pointer;
+      "
+    >
+      OK, GOT IT 👍
+    </button>
+
+  </div>
+</div>
